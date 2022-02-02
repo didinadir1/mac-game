@@ -14,6 +14,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
    
     private var spaceCar : SKSpriteNode!
     private var torpedo : SKSpriteNode!
+    private background1 : SKSpriteNode!
+
+    
     
     
     override func didMove(to view: SKView) {
@@ -22,10 +25,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.spaceCar = self.childNode(withName: "//spaceCar") as? SKSpriteNode
     
         self.torpedo = self.childNode(withName: "//torpedo") as? SKSpriteNode
-        
+        self.wave = self.childNode(withName: "//littleBackground") as? SKSpriteNode
+
         
     }
-    
+    func generateWave(){
+
+//        var wave: SKSpriteNode = SKSpriteNode(imageNamed: "wave")
+
+        background1.position = CGPoint(x: frame.size.width / 2, y:frame.size.height / 2)
+           background1.size = CGSize(width: frame.width, height: frame.height)
+           background1.anchorPoint = CGPointZero
+           background1.position = CGPointMake(0, 0)
+           background1.zPosition = -15
+           self.addChild(background1)
+        
+
+    }
     
     override func keyDown(with event: NSEvent) {
        
